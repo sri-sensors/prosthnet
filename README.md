@@ -1,6 +1,7 @@
 # About this project
 
-PROSTHNET is a deep learning architecture for prosthetics. AI helps us to understand the nature of information flow between these two physical extremes. 
+PROSTHNET is a deep learning architecture for prosthetics. It is applied to understand and engineer information flow between 
+physical and biological system.  
 
 ## Purpose / Vision
 
