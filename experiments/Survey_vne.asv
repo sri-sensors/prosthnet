@@ -168,20 +168,16 @@ f = e-s
 % like the previous encoder, but we have 19 inputs not in case there is a
 % desire to test with a the DEKA LUKE prosthetic that has 19 sensors
 save("paramstrivial19.mat")
-% suppose we only care about 5 sensors, but loading all 19 is fine
+% suppose we only care about 5 sensors...
 S=zeros(1,19);
 S(1)=1.2;
 S(2)=2.2;
 S(3)=3.3;
 S(4)=4.4;
 S(5)=5.5;
-encoderTest19(S,paramsTrivial19); % load the routing first...
-for i = 1:10
-    tic
-    E=encoderTest19(S,paramsTrivial19);
-    toc
-end
-
+S
+E=encoderTest19(S,paramsTrivial19)
+E-S
 
 %%
 

@@ -43,10 +43,7 @@ class simpleModel(nn.Module):
 
         # Build a great big neural network
         self.gen_model = nn.Sequential(
-            nn.Linear(n_sensors, 5*n_sensors),
-            nn.Tanh(),
-            nn.Linear(5*n_sensors, n_sensors),
-            nn.Tanh())
+            nn.Linear(n_sensors, n_sensors))
 
     def forward(self, sensors):
         """
@@ -70,15 +67,15 @@ class simpleModel(nn.Module):
 
 def init_weights_simple(m):
     """function to re-randomize initial weights so the model passes signals straight through"""
-    # if isinstance(m, nn.Linear):
-    #     torch.nn.init.eye_(m.weight)
-    #     m.weight.data.multiply_(0.5)
-    #     m.bias.data.fill_(0.00)
     if isinstance(m, nn.Linear):
-        torch.nn.init.kaiming_normal_(m.weight, mode='fan_out')
-        m.weight.data.multiply_(nsensors/torch.sum(m.weight))
+        torch.nn.init.eye_(m.weight)
+        m.weight.data.multiply_(0.9)
         m.bias.data.fill_(0.00)
     # if isinstance(m, nn.Linear):
+    #     torch.nn.init.kaiming_normal_(m.weight, mode='fan_out')
+    #     m.weight.data.multiply_(nsensors/torch.sum(m.weight))
+    #     m.bias.data.fill_(0.00)
+    # # if isinstance(m, nn.Linear):
     #     torch.nn.init.kaiming_normal_(m.weight, mode='fan_out')
     #     m.weight.data.multiply_(nsensors/torch.sum(m.weight))
     #     m.bias.data.fill_(0.00)

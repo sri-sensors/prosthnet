@@ -11,6 +11,6 @@ Ts(1,1,:)=sensor_data;%load the data samples into the container
 
 Te = encoderTrivial(Ts,paramsTrivial);% run it through the network
 
-encoded_data = Te(1,1,:);%unload the result
+encoded_data =transpose( squeeze(Te(1,1,:)));%unload the result
 
 end

@@ -98,7 +98,7 @@ def Convert_ONNX(model=None, name="simpleModel_ini", dir_path="../src/vne/models
 
 if __name__ == '__main__':
     # load persistent model from file
-    model_name = 'simpleModel_ini-kaimingOut'
+    model_name = 'simpleModel_ini-Trivial19'
     model = encode_save(name=model_name)
 
     print("saved model")
