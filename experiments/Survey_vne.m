@@ -163,11 +163,11 @@ end
 load("paramsAll.mat")
 s=[1,22,333,444444,55555555]; % 5 sensors with 1 sample per sensor
 e=encoderTest(s,paramsTrivial);
-f = e-s
+f = e-s;
 %% function encoderTest19.m does a slightly non-trivial mapping (attenuates a bit) 
 % like the previous encoder, but we have 19 inputs not in case there is a
 % desire to test with a the DEKA LUKE prosthetic that has 19 sensors
-save("paramstrivial19.mat")
+load("paramstrivial19.mat")
 % suppose we only care about 5 sensors, but loading all 19 is fine
 S=zeros(1,19);
 S(1)=1.2;
@@ -179,15 +179,10 @@ encoderTest19(S,paramsTrivial19); % load the routing first...
 for i = 1:10
     tic
     E=encoderTest19(S,paramsTrivial19);
+    d=E-S;
     toc
 end
 
-
-%%
-
-tic
-
-toc
 
 
 
